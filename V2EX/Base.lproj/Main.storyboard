@@ -13,7 +13,6 @@
         <!--探索-->
         <scene sceneID="1ir-ln-Owx">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uQJ-HR-DzM" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="9lf-kg-No8" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="72I-2H-R2L"/>
@@ -26,13 +25,13 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="探索" image="tabicon-explore" id="OQI-ZL-5MY"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uQJ-HR-DzM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1354" y="334"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="YP8-RQ-fM0">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="67q-1X-6j7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="JvE-oZ-HtZ" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1rO-Z6-7OF"/>
@@ -45,6 +44,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="BOq-2m-0Uu"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="67q-1X-6j7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-551.20000000000005" y="-567.16641679160421"/>
         </scene>
@@ -226,10 +226,10 @@
             </objects>
             <point key="canvasLocation" x="2122" y="-105"/>
         </scene>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="vwg-Rv-0tt">
             <objects>
-                <viewController id="u83-oF-SNp" sceneMemberID="viewController">
+                <viewController id="u83-oF-SNp" customClass="LoginViewController" customModule="V2EX" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kga-sg-zvm"/>
                         <viewControllerLayoutGuide type="bottom" id="Rfd-2s-vBa"/>
@@ -250,7 +250,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VTg-Rq-tx6">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                                     <connections>
-                                                        <segue destination="m8I-9z-Qf5" kind="unwind" unwindAction="unwindToViewController:" id="3MH-Bk-Fcf"/>
+                                                        <action selector="backButtonDidToucj:" destination="u83-oF-SNp" eventType="touchUpInside" id="EZP-yY-Pi9"/>
                                                     </connections>
                                                 </button>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WPb-U2-4fs" customClass="DesignableView" customModule="V2EX" customModuleProvider="target">
@@ -299,10 +299,21 @@
                                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yum-Zn-HRw">
                                                             <rect key="frame" x="88" y="193" width="115" height="35"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <color key="tintColor" red="0.80784313725490198" green="0.80784313725490198" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
                                                             <state key="normal" title="登录" backgroundImage="self-loginframe-loginbutton">
                                                                 <color key="titleColor" red="0.80784313725490198" green="0.80784313725490198" blue="0.82352941176470584" alpha="1" colorSpace="calibratedRGB"/>
                                                             </state>
+                                                            <connections>
+                                                                <action selector="loginButtonDidTouch:" destination="u83-oF-SNp" eventType="touchUpInside" id="e6U-WZ-h64"/>
+                                                            </connections>
                                                         </button>
+                                                        <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="请输入用户名或密码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mw2-n9-h7O" customClass="DesignableLabel" customModule="V2EX" customModuleProvider="target">
+                                                            <rect key="frame" x="26" y="50" width="238" height="21"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" red="0.90196078431372551" green="0.14509803921568626" blue="0.396078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.1764705882352941" green="0.24313725490196078" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -348,9 +359,14 @@
                             <constraint firstItem="Oor-ou-lwc" firstAttribute="leading" secondItem="qdo-GT-ShS" secondAttribute="leading" id="bUX-fQ-leo"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="errorMessageTextField" destination="Mw2-n9-h7O" id="QbT-6j-x0b"/>
+                        <outlet property="loginView" destination="WPb-U2-4fs" id="rjd-wp-dIq"/>
+                        <outlet property="passwordTextField" destination="ecY-KT-SuR" id="B8S-Iz-A6E"/>
+                        <outlet property="usernameTextField" destination="i9k-in-baX" id="OnS-c1-qET"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8kk-pu-wn5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="m8I-9z-Qf5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2916" y="-106.59670164917542"/>
         </scene>

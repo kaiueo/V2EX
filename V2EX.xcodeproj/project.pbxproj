@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0A346FC71E72BAB40040724A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A346FC61E72BAB40040724A /* AppDelegate.swift */; };
-		0A346FC91E72BAB40040724A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A346FC81E72BAB40040724A /* ViewController.swift */; };
 		0A346FCC1E72BAB40040724A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A346FCA1E72BAB40040724A /* Main.storyboard */; };
 		0A346FCF1E72BAB40040724A /* V2EX.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A346FCD1E72BAB40040724A /* V2EX.xcdatamodeld */; };
 		0A346FD11E72BAB40040724A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A346FD01E72BAB40040724A /* Assets.xcassets */; };
@@ -48,6 +47,7 @@
 		0A34703D1E72DDE60040724A /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3470371E72DDE60040724A /* TPKeyboardAvoidingScrollView.m */; };
 		0A34703E1E72DDE60040724A /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3470391E72DDE60040724A /* TPKeyboardAvoidingTableView.m */; };
 		0A34703F1E72DDE60040724A /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A34703B1E72DDE60040724A /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		0A3470411E72DFEE0040724A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3470401E72DFEE0040724A /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +70,6 @@
 /* Begin PBXFileReference section */
 		0A346FC31E72BAB40040724A /* V2EX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = V2EX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A346FC61E72BAB40040724A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0A346FC81E72BAB40040724A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0A346FCB1E72BAB40040724A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0A346FCE1E72BAB40040724A /* V2EX.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = V2EX.xcdatamodel; sourceTree = "<group>"; };
 		0A346FD01E72BAB40040724A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -120,6 +119,7 @@
 		0A3470391E72DDE60040724A /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
 		0A34703A1E72DDE60040724A /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
 		0A34703B1E72DDE60040724A /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		0A3470401E72DFEE0040724A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,7 +173,7 @@
 				0A346FF71E72C4B50040724A /* Spring */,
 				0A3470331E72DDE60040724A /* TPKeyboardAvoiding */,
 				0A346FC61E72BAB40040724A /* AppDelegate.swift */,
-				0A346FC81E72BAB40040724A /* ViewController.swift */,
+				0A3470401E72DFEE0040724A /* LoginViewController.swift */,
 				0A346FCA1E72BAB40040724A /* Main.storyboard */,
 				0A346FD01E72BAB40040724A /* Assets.xcassets */,
 				0A346FD21E72BAB40040724A /* LaunchScreen.storyboard */,
@@ -406,7 +406,6 @@
 				0A3470201E72C4B50040724A /* DesignableView.swift in Sources */,
 				0A34701D1E72C4B50040724A /* DesignableTabBarController.swift in Sources */,
 				0A34701A1E72C4B50040724A /* DesignableButton.swift in Sources */,
-				0A346FC91E72BAB40040724A /* ViewController.swift in Sources */,
 				0A3470311E72C4B50040724A /* TransitionZoom.swift in Sources */,
 				0A34701E1E72C4B50040724A /* DesignableTextField.swift in Sources */,
 				0A3470301E72C4B50040724A /* TransitionManager.swift in Sources */,
@@ -420,6 +419,7 @@
 				0A34703C1E72DDE60040724A /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				0A34702A1E72C4B50040724A /* SpringButton.swift in Sources */,
 				0A3470291E72C4B50040724A /* SpringAnimation.swift in Sources */,
+				0A3470411E72DFEE0040724A /* LoginViewController.swift in Sources */,
 				0A34703E1E72DDE60040724A /* TPKeyboardAvoidingTableView.m in Sources */,
 				0A34701B1E72C4B50040724A /* DesignableImageView.swift in Sources */,
 				0A346FC71E72BAB40040724A /* AppDelegate.swift in Sources */,
