@@ -36,20 +36,36 @@ class LoginViewController: UIViewController {
             errorHandle(errorMessage: "请输入用户名或密码")
         }
         else{
-            //let username = usernameTextField.text
-            //let user1 = V2EXNetworkHelper.getUserInfo(username: username!)
-//            print(user1)
-//            guard let user = V2EXNetworkHelper.getUserInfo(username: username!) else {
-//                errorHandle(errorMessage: "找不到该用户")
-//
-//                return
-//            }
-//            loginView.animation = "slideUp"
-//            loginView.animateNext { [weak self] in
-//                self?.delegate?.loginViewControllerDidTouchLogin(user)
-//                self?.dismiss(animated: true, completion: nil)
-//            }
-            
+            let username = usernameTextField.text
+            V2EXNetworkHelper.getUser(withUsername: username!){ optionalUser in
+                guard optionalUser != nil else {
+                    self.errorHandle(errorMessage: "未找到该用户")
+                    return
+                }
+                let user = optionalUser!
+                
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                //dateFormatter.timeZone = TimeZone(abbreviation: "CST")
+                let userInfo: [String: Any] = ["id": user.id,
+                                "username": user.username,
+                                "website": user.website ?? "",
+                                "twitter": user.twitter ?? "",
+                                "github": user.github ?? "",
+                                "location": user.location ?? "",
+                                "avatar": user.avatar,
+                                "bio": user.bio ?? "",
+                                "created": dateFormatter.string(from: user.created)
+                                ]
+                UserDefaults.standard.set(userInfo, forKey: UserDefaultsStrings.SelfInfoString)
+                self.delegate?.loginViewControllerDidTouchLogin(sender)
+                self.loginView.animation = "zoomOut"
+                self.loginView.animateNext {
+                    self.dismiss(animated: true, completion: nil)
+                }
+                
+                
+            }
             
         }
     }

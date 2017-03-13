@@ -106,7 +106,7 @@ static const int kStateKey;
         }
         
         self.scrollIndicatorInsets = self.contentInset;
-        [self layoutIfNeeded];
+        [self layoutSubviews];
         
         [UIView commitAnimations];
     });

@@ -67,6 +67,20 @@ struct V2EXNetworkHelper {
         }
     }
     
+    static func getImage(url: String, compllition: @escaping (UIImage?) -> Void){
+        let imageUrl = "https:" + url
+        Alamofire.request(imageUrl).responseData { response in
+            switch response.result {
+            case .success(let value):
+                let image = UIImage(data: value)
+                compllition(image)
+            case .failure(let error):
+                print(error)
+                compllition(nil)
+            }
+        }
+    }
+    
     private static func getUser(withInfo json: JSON) -> User?{
         let user = User()
         guard json["status"].string! == "found" else {

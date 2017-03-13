@@ -72,7 +72,7 @@
         <!--个人-->
         <scene sceneID="yeS-9a-wIh">
             <objects>
-                <viewController id="GXj-XL-zST" sceneMemberID="viewController">
+                <viewController id="GXj-XL-zST" customClass="SelfViewController" customModule="V2EX" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mTz-LE-OPR"/>
                         <viewControllerLayoutGuide type="bottom" id="AjT-69-jZr"/>
@@ -138,7 +138,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sqd-pk-vzS">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sqd-pk-vzS">
                                 <rect key="frame" x="16" y="314" width="343" height="304"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -147,23 +147,41 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dUB-fB-FcE">
                                 <rect key="frame" x="0.0" y="237" width="375" height="33"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2nc-JO-nAM">
-                                        <rect key="frame" x="48" y="5" width="16" height="22"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2nc-JO-nAM">
+                                        <rect key="frame" x="52" y="5" width="16" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" red="0.6705882353" green="0.70588235290000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" image="self-twitter"/>
+                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="twitter" image="self-twitter"/>
+                                        <connections>
+                                            <action selector="selfInfoButtonsDidTouch:" destination="GXj-XL-zST" eventType="touchUpInside" id="aED-34-tc4"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSr-oc-G5N">
-                                        <rect key="frame" x="80" y="5" width="16" height="22"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bSr-oc-G5N">
+                                        <rect key="frame" x="84" y="5" width="16" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" red="0.6705882353" green="0.70588235290000001" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" image="self-github"/>
+                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="github" image="self-github"/>
+                                        <connections>
+                                            <action selector="selfInfoButtonsDidTouch:" destination="GXj-XL-zST" eventType="touchUpInside" id="Kja-F1-suL"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="loK-UY-8dw">
-                                        <rect key="frame" x="16" y="5" width="16" height="22"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="loK-UY-8dw">
+                                        <rect key="frame" x="116" y="5" width="16" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="tintColor" red="0.6705882352941176" green="0.70588235294117641" blue="0.74117647058823533" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" image="self-location"/>
+                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="location" image="self-location"/>
+                                        <connections>
+                                            <action selector="selfInfoButtonsDidTouch:" destination="GXj-XL-zST" eventType="touchUpInside" id="V4X-3m-dHx"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tkK-Vy-Drg">
+                                        <rect key="frame" x="16" y="5" width="20" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="website" image="self-website"/>
+                                        <connections>
+                                            <action selector="selfInfoButtonsDidTouch:" destination="GXj-XL-zST" eventType="touchUpInside" id="80A-NG-asd"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -185,7 +203,7 @@
                                         <barButtonItem key="rightBarButtonItem" image="self-login" id="R91-bL-hmF">
                                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <connections>
-                                                <segue destination="u83-oF-SNp" kind="presentation" identifier="LoginSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="n0i-V4-YO7"/>
+                                                <action selector="loginButtonDidTouch:" destination="GXj-XL-zST" id="IuA-BK-sdA"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -221,10 +239,22 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="个人" image="tabicon-self" id="Hgx-rM-1F7"/>
+                    <connections>
+                        <outlet property="avatarImageView" destination="H39-Us-Vru" id="e3n-2e-hAg"/>
+                        <outlet property="biographyTextView" destination="sqd-pk-vzS" id="NiH-0V-Lmg"/>
+                        <outlet property="createdLabel" destination="R3C-xZ-5VU" id="iY1-9L-Dc3"/>
+                        <outlet property="githubButton" destination="bSr-oc-G5N" id="mRT-bV-Zze"/>
+                        <outlet property="locationButton" destination="loK-UY-8dw" id="3S2-tK-rFp"/>
+                        <outlet property="loginButton" destination="R91-bL-hmF" id="8I8-Fe-JmV"/>
+                        <outlet property="twitterButton" destination="2nc-JO-nAM" id="eJj-YU-hff"/>
+                        <outlet property="usernameLabel" destination="w4K-2x-C4a" id="16V-Hz-bRs"/>
+                        <outlet property="websiteButton" destination="tkK-Vy-Drg" id="7qM-Bm-p9c"/>
+                        <segue destination="u83-oF-SNp" kind="presentation" identifier="LoginSegue" modalPresentationStyle="overCurrentContext" modalTransitionStyle="crossDissolve" id="2Ep-Bp-Zza"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AFL-Rn-zZ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2122" y="-105"/>
+            <point key="canvasLocation" x="2120.8000000000002" y="-105.69715142428787"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="vwg-Rv-0tt">
@@ -399,6 +429,7 @@
         <image name="self-loginframe-loginbutton" width="141" height="41"/>
         <image name="self-loginframe-logo" width="54" height="15"/>
         <image name="self-twitter" width="20" height="17"/>
+        <image name="self-website" width="20" height="21"/>
         <image name="tabicon-explore" width="27" height="26"/>
         <image name="tabicon-home" width="25" height="26"/>
         <image name="tabicon-self" width="25" height="26"/>
