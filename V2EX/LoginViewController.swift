@@ -8,12 +8,18 @@
 
 import UIKit
 
+protocol LoginViewControllerDelegate {
+    func loginViewControllerDidTouchLogin(_ sender: Any)
+}
+
 class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
+    
+    var delegate: LoginViewControllerDelegate?
     
     @IBOutlet weak var loginView: DesignableView!
     @IBOutlet weak var usernameTextField: DesignableTextField!
@@ -27,10 +33,32 @@ class LoginViewController: UIViewController {
     }
     @IBAction func loginButtonDidTouch(_ sender: Any) {
         if usernameTextField.text == "" || passwordTextField.text == "" {
-            errorMessageTextField.isHidden = false
-            loginView.animation = "shake"
-            loginView.animate()
+            errorHandle(errorMessage: "请输入用户名或密码")
         }
+        else{
+            //let username = usernameTextField.text
+            //let user1 = V2EXNetworkHelper.getUserInfo(username: username!)
+//            print(user1)
+//            guard let user = V2EXNetworkHelper.getUserInfo(username: username!) else {
+//                errorHandle(errorMessage: "找不到该用户")
+//
+//                return
+//            }
+//            loginView.animation = "slideUp"
+//            loginView.animateNext { [weak self] in
+//                self?.delegate?.loginViewControllerDidTouchLogin(user)
+//                self?.dismiss(animated: true, completion: nil)
+//            }
+            
+            
+        }
+    }
+    
+    func errorHandle(errorMessage: String){
+        errorMessageTextField.isHidden = false
+        errorMessageTextField.text = errorMessage
+        loginView.animation = "shake"
+        loginView.animate()
     }
     
 
