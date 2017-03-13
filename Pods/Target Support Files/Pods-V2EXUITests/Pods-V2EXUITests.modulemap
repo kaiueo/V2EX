@@ -1,0 +1,6 @@
+framework module Pods_V2EXUITests {
+  umbrella header "Pods-V2EXUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
