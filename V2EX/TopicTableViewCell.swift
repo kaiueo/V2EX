@@ -34,7 +34,7 @@ class TopicTableViewCell: UITableViewCell {
         commnetNumberLabel.text = String(topic["replies"].int!)
         let date = DateInRegion(absoluteDate: Date(timeIntervalSince1970: TimeInterval(topic["created"].int!)))
         dateLabel.text = try? date.colloquialSinceNow().colloquial
-        nodeButton?.setTitle(topic["node"]["title"].string, for: .normal)
+        nodeButton?.setTitle(" " + topic["node"]["title"].string! + " ", for: .normal)
         V2EXNetworkHelper.getImage(url: topic["member"]["avatar_large"].string!) { image in
             self.avatarImageView.image = image
         }

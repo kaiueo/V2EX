@@ -16,6 +16,7 @@ enum Router: URLRequestConvertible {
     case memberId(Int)
     case memberName(String)
     case hot
+    case latest
     
     func asURLRequest() throws -> URLRequest {
         let result: (path: String, params: Parameters) = {
@@ -29,6 +30,9 @@ enum Router: URLRequestConvertible {
             case .hot:
                 let params: [String: Any] = [:]
                 return ("/topics/hot.json", params)
+            case .latest:
+                let params: [String: Any] = [:]
+                return ("/topics/latest.json", params)
             }
             
             
@@ -84,6 +88,21 @@ struct V2EXNetworkHelper {
                 complition(nil)
             }
         
+        }
+    }
+    
+    static func getLatestTopics(complition: @escaping (JSON?) -> Void){
+        Alamofire.request(Router.latest).validate().responseJSON{
+            response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                complition(json)
+            case .failure(let error):
+                print(error)
+                complition(nil)
+            }
+            
         }
     }
     

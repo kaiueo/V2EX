@@ -11,6 +11,8 @@ import Foundation
 struct StoryBoardConfigs {
     static let LoginSegueIdentifier = "LoginSegue"
     static let TopicCellIdentifier = "TopicCell"
+    static let HotTopicTableViewControllerIdentifier = "HotTopicTableViewController"
+    static let LatestTopicTableViewControllerIdentifier = "LatestTopicTableViewController"
 }
 
 struct UserDefaultsStrings {
