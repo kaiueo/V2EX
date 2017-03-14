@@ -10,6 +10,7 @@ import Foundation
 
 struct StoryBoardConfigs {
     static let LoginSegueIdentifier = "LoginSegue"
+    static let TopicCellIdentifier = "TopicCell"
 }
 
 struct UserDefaultsStrings {

@@ -52,6 +52,8 @@
 		0A5786BB1E765AD100BC9EE6 /* V2EXNetworks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5786BA1E765AD100BC9EE6 /* V2EXNetworks.swift */; };
 		0A5786BD1E7661E900BC9EE6 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5786BC1E7661E900BC9EE6 /* Models.swift */; };
 		0A5786BF1E7686A400BC9EE6 /* SelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5786BE1E7686A400BC9EE6 /* SelfViewController.swift */; };
+		0AB51E5A1E780DBC00B5FB9D /* HotTopicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB51E591E780DBC00B5FB9D /* HotTopicTableViewController.swift */; };
+		0AB51E5C1E780DE300B5FB9D /* TopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB51E5B1E780DE300B5FB9D /* TopicTableViewCell.swift */; };
 		135F922B2CDB62597DB28197 /* Pods_V2EX.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FCB28C819A5B076DCEEFD136 /* Pods_V2EX.framework */; };
 		79CFA4D25F6D8DA36EE602A9 /* Pods_V2EXTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA88971F380453AFA133E043 /* Pods_V2EXTests.framework */; };
 		9D46D9E6E07345208DA0C528 /* Pods_V2EXUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AB7D17EA537E9369F147ECD /* Pods_V2EXUITests.framework */; };
@@ -132,6 +134,8 @@
 		0A5786BA1E765AD100BC9EE6 /* V2EXNetworks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = V2EXNetworks.swift; sourceTree = "<group>"; };
 		0A5786BC1E7661E900BC9EE6 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		0A5786BE1E7686A400BC9EE6 /* SelfViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfViewController.swift; sourceTree = "<group>"; };
+		0AB51E591E780DBC00B5FB9D /* HotTopicTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotTopicTableViewController.swift; sourceTree = "<group>"; };
+		0AB51E5B1E780DE300B5FB9D /* TopicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicTableViewCell.swift; sourceTree = "<group>"; };
 		0AB7D17EA537E9369F147ECD /* Pods_V2EXUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_V2EXUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A1EA5C04685CD510B42BE80 /* Pods-V2EX.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-V2EX.debug.xcconfig"; path = "Pods/Target Support Files/Pods-V2EX/Pods-V2EX.debug.xcconfig"; sourceTree = "<group>"; };
 		688E003466C0D90145013FBD /* Pods-V2EXTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-V2EXTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-V2EXTests/Pods-V2EXTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -200,6 +204,8 @@
 				0A346FC61E72BAB40040724A /* AppDelegate.swift */,
 				0A3470401E72DFEE0040724A /* LoginViewController.swift */,
 				0A5786BE1E7686A400BC9EE6 /* SelfViewController.swift */,
+				0AB51E591E780DBC00B5FB9D /* HotTopicTableViewController.swift */,
+				0AB51E5B1E780DE300B5FB9D /* TopicTableViewCell.swift */,
 				0A5189891E76E771003638C7 /* ConfigureStrings.swift */,
 				0A5786BC1E7661E900BC9EE6 /* Models.swift */,
 				0A5786BA1E765AD100BC9EE6 /* V2EXNetworks.swift */,
@@ -593,6 +599,7 @@
 				0A3470181E72C4B50040724A /* AutoTextView.swift in Sources */,
 				0A34703F1E72DDE60040724A /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				0A3470211E72C4B50040724A /* ImageLoader.swift in Sources */,
+				0AB51E5C1E780DE300B5FB9D /* TopicTableViewCell.swift in Sources */,
 				0A3470261E72C4B50040724A /* Misc.swift in Sources */,
 				0A3470191E72C4B50040724A /* BlurView.swift in Sources */,
 				0A5786BB1E765AD100BC9EE6 /* V2EXNetworks.swift in Sources */,
@@ -626,6 +633,7 @@
 				0A34703E1E72DDE60040724A /* TPKeyboardAvoidingTableView.m in Sources */,
 				0A34701B1E72C4B50040724A /* DesignableImageView.swift in Sources */,
 				0A346FC71E72BAB40040724A /* AppDelegate.swift in Sources */,
+				0AB51E5A1E780DBC00B5FB9D /* HotTopicTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,6 +15,7 @@ enum Router: URLRequestConvertible {
     
     case memberId(Int)
     case memberName(String)
+    case hot
     
     func asURLRequest() throws -> URLRequest {
         let result: (path: String, params: Parameters) = {
@@ -25,7 +26,11 @@ enum Router: URLRequestConvertible {
             case .memberName(let username):
                 let params = ["username": username]
                 return ("/members/show.json", params)
+            case .hot:
+                let params: [String: Any] = [:]
+                return ("/topics/hot.json", params)
             }
+            
             
         }()
         
@@ -64,6 +69,21 @@ struct V2EXNetworkHelper {
                 print(error)
                 complition(nil)
             }
+        }
+    }
+    
+    static func getHotTopics(complition: @escaping (JSON?) -> Void){
+        Alamofire.request(Router.hot).validate().responseJSON{
+            response in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                complition(json)
+            case .failure(let error):
+                print(error)
+                complition(nil)
+            }
+        
         }
     }
     

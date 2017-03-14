@@ -6,6 +6,7 @@ target 'V2EX' do
   use_frameworks!
   pod 'Alamofire', '~> 4.4'
   pod 'SwiftyJSON'
+  pod 'SwiftDate', '~> 4.0'
 
   # Pods for V2EX
 
