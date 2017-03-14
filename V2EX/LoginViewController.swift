@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol LoginViewControllerDelegate {
+protocol LoginViewControllerDelegate: class {
     func loginViewControllerDidTouchLogin(_ sender: Any)
 }
 
@@ -19,7 +19,7 @@ class LoginViewController: UIViewController {
         
     }
     
-    var delegate: LoginViewControllerDelegate?
+    weak var delegate: LoginViewControllerDelegate?
     
     @IBOutlet weak var loginView: DesignableView!
     @IBOutlet weak var usernameTextField: DesignableTextField!
