@@ -13,22 +13,57 @@ class ExplorerViewController: UIViewController {
     var pageViewController: UIPageViewController!
     var hotTopicTableViewController: HotTopicTableViewController!
     var latestTopicTableViewController: LatestTopicTableViewController!
-
+    
+    @IBOutlet weak var latestButton: UIButton!
+    @IBOutlet weak var hotButton: UIButton!
+    @IBOutlet weak var pageIndicator: DesignableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
+        
         pageViewController = self.childViewControllers.first as! UIPageViewController
         pageViewController.dataSource = self
+        pageViewController.delegate = self
         hotTopicTableViewController = storyboard?.instantiateViewController(withIdentifier: StoryBoardConfigs.HotTopicTableViewControllerIdentifier) as! HotTopicTableViewController
         latestTopicTableViewController = storyboard?.instantiateViewController(withIdentifier: StoryBoardConfigs.LatestTopicTableViewControllerIdentifier) as! LatestTopicTableViewController
         pageViewController.setViewControllers([hotTopicTableViewController], direction: .forward, animated: true, completion: nil)
         
         
-
+        
         // Do any additional setup after loading the view.
     }
-
     
+    // MARK: PageViewIndicator
+    
+    enum ExplorerPage{
+        case hot
+        case latest
+    }
+    
+    @IBAction func hotButtonDidTouch(_ sender: Any) {
+        pageViewController.setViewControllers([hotTopicTableViewController], direction: .reverse, animated: true, completion: nil)
+        movePageIndicator(page: .hot)
+        
+    }
+    
+    @IBAction func latestButtonDidTouch(_ sender: Any) {
+        pageViewController.setViewControllers([latestTopicTableViewController], direction: .forward, animated: true, completion: nil)
+        movePageIndicator(page: .latest)
+        
+    }
+    
+    func movePageIndicator(page :ExplorerPage){
+        UIView.animate(withDuration: 0.3, animations: {
+            switch page{
+            case .hot:
+                self.pageIndicator.center.x = self.hotButton.center.x
+            case .latest:
+                self.pageIndicator.center.x = self.latestButton.center.x
+            }
+            
+        })
+    }
 }
 
 // MARK: UIPageViewControllerDataSource
@@ -49,6 +84,23 @@ extension ExplorerViewController: UIPageViewControllerDataSource{
             return nil
         }
     }
+}
+
+// MARK: UIPageViewControllerDelegate
+
+extension ExplorerViewController: UIPageViewControllerDelegate{
     
+    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        if completed {
+            if let toView = previousViewControllers.first{
+                if toView.isKind(of: HotTopicTableViewController.self){
+                    movePageIndicator(page: .latest)
+                }
+                else {
+                    movePageIndicator(page: .hot)
+                }
+            }
+        }
+    }
     
 }

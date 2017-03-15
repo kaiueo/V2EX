@@ -77,7 +77,53 @@
                             <constraint firstAttribute="trailing" secondItem="0Rg-cv-V3U" secondAttribute="trailing" id="jsL-jS-h7k"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="uPb-AG-yhh"/>
+                    <navigationItem key="navigationItem" id="uPb-AG-yhh">
+                        <nil key="title"/>
+                        <view key="titleView" contentMode="scaleToFill" id="bSh-br-uRJ">
+                            <rect key="frame" x="113" y="6" width="150" height="33"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mql-DH-CG6">
+                                    <rect key="frame" x="28" y="5" width="35" height="22"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                    <state key="normal" title="热门">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="hotButtonDidTouch:" destination="hHC-OY-N2K" eventType="touchUpInside" id="Ztr-1B-6fl"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Fm-1b-fBw">
+                                    <rect key="frame" x="87" y="5" width="35" height="22"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                    <state key="normal" title="最新">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="latestButtonDidTouch:" destination="hHC-OY-N2K" eventType="touchUpInside" id="xLo-cA-aJM"/>
+                                    </connections>
+                                </button>
+                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SOY-1l-fBy" customClass="DesignableView" customModule="V2EX" customModuleProvider="target">
+                                    <rect key="frame" x="26" y="30" width="38" height="1"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="1"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" red="0.36649519205093384" green="0.43681824207305908" blue="0.50167745351791382" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </view>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="hotButton" destination="mql-DH-CG6" id="bPa-DA-vRH"/>
+                        <outlet property="latestButton" destination="4Fm-1b-fBw" id="QDK-Fu-8FJ"/>
+                        <outlet property="pageIndicator" destination="SOY-1l-fBy" id="prI-wK-ZSP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JVZ-4v-Oa3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
