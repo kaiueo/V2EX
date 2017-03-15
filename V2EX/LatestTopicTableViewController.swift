@@ -20,6 +20,7 @@ class LatestTopicTableViewController: UITableViewController {
         view.showLoading()
         
         refreshControl?.addTarget(self, action: #selector(LatestTopicTableViewController.refreshData), for: .valueChanged)
+        navigationItem.title = "最新"
         loadData()
     }
     
@@ -60,15 +61,21 @@ class LatestTopicTableViewController: UITableViewController {
     // MARK: TableViewDelegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        performSegue(withIdentifier: StoryBoardConfigs.LatestToDetailSegueIdentifier, sender: indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
+
+    // MARK: PrepareSegue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == StoryBoardConfigs.LatestToDetailSegueIdentifier{
+            let toViewController = segue.destination as! TopicDetailTableViewController
+            let indexPath = sender as! IndexPath
+            toViewController.topic = latestTopics[indexPath.row]
+        }
+    }
 }
+
+
+
+

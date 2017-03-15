@@ -19,6 +19,7 @@ class HotTopicTableViewController: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         view.showLoading()
         refreshControl?.addTarget(self, action: #selector(HotTopicTableViewController.refreshData), for: .valueChanged)
+        navigationItem.title = "热门"
         loadData()
     }
     
@@ -43,7 +44,7 @@ class HotTopicTableViewController: UITableViewController {
 
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+
         return hotTopics.count
     }
 
@@ -58,16 +59,20 @@ class HotTopicTableViewController: UITableViewController {
     // MARK: TableViewDelegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: StoryBoardConfigs.HotToDetailSegueIdentifier, sender: indexPath)
+    
         tableView.deselectRow(at: indexPath, animated: true)
     }
 
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    // MARK: PrepareForSegue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == StoryBoardConfigs.HotToDetailSegueIdentifier {
+            let toViewController = segue.destination as! TopicDetailTableViewController
+            let indexPath = sender as! IndexPath
+            toViewController.topic = hotTopics[indexPath.row]
+        }
     }
-    */
 
 }

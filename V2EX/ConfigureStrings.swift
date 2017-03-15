@@ -13,6 +13,13 @@ struct StoryBoardConfigs {
     static let TopicCellIdentifier = "TopicCell"
     static let HotTopicTableViewControllerIdentifier = "HotTopicTableViewController"
     static let LatestTopicTableViewControllerIdentifier = "LatestTopicTableViewController"
+    static let TopicDetailCellIdentifier = "TopicDetailCell"
+    static let TopicCommentCellIdentifier = "TopicCommentCell"
+    static let LatestToDetailSegueIdentifier = "LatestToDetailSegue"
+    static let HotToDetailSegueIdentifier = "HotToDetailSegue"
+    static let TopicDetailTableViewControllerIdentifier = "TopicDetailTableViewController"
+    
+    
 }
 
 struct UserDefaultsStrings {

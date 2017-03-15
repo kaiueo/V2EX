@@ -19,13 +19,14 @@ class ExplorerViewController: UIViewController {
     @IBOutlet weak var pageIndicator: DesignableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
+        self.title = "热门"
         
         pageViewController = self.childViewControllers.first as! UIPageViewController
         pageViewController.dataSource = self
         pageViewController.delegate = self
         hotTopicTableViewController = storyboard?.instantiateViewController(withIdentifier: StoryBoardConfigs.HotTopicTableViewControllerIdentifier) as! HotTopicTableViewController
+        
+        //hotTopicTableViewController.delegate = self
         latestTopicTableViewController = storyboard?.instantiateViewController(withIdentifier: StoryBoardConfigs.LatestTopicTableViewControllerIdentifier) as! LatestTopicTableViewController
         pageViewController.setViewControllers([hotTopicTableViewController], direction: .forward, animated: true, completion: nil)
         
@@ -58,11 +59,14 @@ class ExplorerViewController: UIViewController {
             switch page{
             case .hot:
                 self.pageIndicator.center.x = self.hotButton.center.x
+                self.title = "热门"
             case .latest:
                 self.pageIndicator.center.x = self.latestButton.center.x
+                self.title = "最新"
             }
             
         })
+        
     }
 }
 
@@ -104,3 +108,4 @@ extension ExplorerViewController: UIPageViewControllerDelegate{
     }
     
 }
+

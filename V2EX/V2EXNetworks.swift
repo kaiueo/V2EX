@@ -17,6 +17,7 @@ enum Router: URLRequestConvertible {
     case memberName(String)
     case hot
     case latest
+    case comments(Int)
     
     func asURLRequest() throws -> URLRequest {
         let result: (path: String, params: Parameters) = {
@@ -33,6 +34,10 @@ enum Router: URLRequestConvertible {
             case .latest:
                 let params: [String: Any] = [:]
                 return ("/topics/latest.json", params)
+            case .comments(let topicId):
+                let params = ["topic_id": topicId]
+                return ("/replies/show.json", params)
+                
             }
             
             
@@ -103,6 +108,19 @@ struct V2EXNetworkHelper {
                 complition(nil)
             }
             
+        }
+    }
+    
+    static func getComments(withTopicId topicId: Int, complition: @escaping (JSON?) -> Void){
+        Alamofire.request(Router.comments(topicId)).validate().responseJSON { (response) in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                complition(json)
+            case .failure(let error):
+                print(error)
+                complition(nil)
+            }
         }
     }
     
