@@ -19,7 +19,7 @@ class ExplorerViewController: UIViewController {
     @IBOutlet weak var pageIndicator: DesignableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "热门"
+        self.navigationItem.title = "热门"
         
         pageViewController = self.childViewControllers.first as! UIPageViewController
         pageViewController.dataSource = self
@@ -59,10 +59,10 @@ class ExplorerViewController: UIViewController {
             switch page{
             case .hot:
                 self.pageIndicator.center.x = self.hotButton.center.x
-                self.title = "热门"
+                self.navigationItem.title = "热门"
             case .latest:
                 self.pageIndicator.center.x = self.latestButton.center.x
-                self.title = "最新"
+                self.navigationItem.title = "最新"
             }
             
         })
