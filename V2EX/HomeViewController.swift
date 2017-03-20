@@ -106,16 +106,8 @@ extension HomeViewController: UICollectionViewDataSource{
         
         cell.cellName = (likeNodes[indexPath.row].first?.key)!
         if indexPath.row == currentPage {
-            cell.backgroundColorView.backgroundColor = UIColor(red:0.98, green:0.98, blue:0.98, alpha:1.00)
-            cell.indicatorView.isHidden = false
-            //collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
+            cell.active()
         }
-        else{
-            cell.backgroundColorView.backgroundColor = UIColor(red:0.94, green:0.94, blue:0.95, alpha:1.00)
-            cell.indicatorView.isHidden = true
-            
-        }
-        
         return cell
     }
 }
@@ -135,8 +127,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout{
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         let cell = collectionView.cellForItem(at: indexPath) as? HomeTabBarCollectionViewCell
         if let cell = cell {
-            cell.backgroundColorView.backgroundColor = UIColor(red:0.98, green:0.98, blue:0.98, alpha:1.00)
-            cell.indicatorView.isHidden = false
+            cell.active()
         }
         let fromIndexPath = IndexPath(row: lastPage, section: 0)
         self.collectionView(collectionView, didDeselectItemAt: fromIndexPath)
@@ -152,8 +143,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as? HomeTabBarCollectionViewCell
         if let cell = cell{
-            cell.backgroundColorView.backgroundColor = UIColor(red:0.94, green:0.94, blue:0.95, alpha:1.00)
-            cell.indicatorView.isHidden = true
+            cell.reset()
             lastPage = indexPath.row
         }
         
