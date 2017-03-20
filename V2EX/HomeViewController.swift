@@ -55,6 +55,12 @@ class HomeViewController: UIViewController {
             pageIndex = pageIndex + 1
         }
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == StoryBoardConfigs.AllNodesSeugeIdentifier{
+            let toView = segue.destination as! AllNodesTableViewController
+            toView.delegate = self
+        }
+    }
 }
 
 // MARK: UIPageViewControllerDataSource
@@ -116,11 +122,11 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout{
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         let cell = collectionView.cellForItem(at: indexPath) as! HomeTabBarCollectionViewCell
         cell.backgroundColorView.backgroundColor = UIColor(red:0.98, green:0.98, blue:0.98, alpha:1.00)
         cell.indicatorView.isHidden = false
         currentPage = indexPath.row
-        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         DispatchQueue.main.async {
             self.pageViewController.setViewControllers([self.viewControllers[indexPath.row]], direction: .forward, animated: false, completion: nil)
         }
@@ -128,10 +134,13 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout{
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath) as! HomeTabBarCollectionViewCell
-        cell.backgroundColorView.backgroundColor = UIColor(red:0.94, green:0.94, blue:0.95, alpha:1.00)
-        cell.indicatorView.isHidden = true
-        lastPage = indexPath.row
+        let cell = collectionView.cellForItem(at: indexPath) as? HomeTabBarCollectionViewCell
+        if let cell = cell{
+            cell.backgroundColorView.backgroundColor = UIColor(red:0.94, green:0.94, blue:0.95, alpha:1.00)
+            cell.indicatorView.isHidden = true
+            lastPage = indexPath.row
+        }
+        
     }
 
 }
@@ -157,6 +166,19 @@ extension HomeViewController: UIPageViewControllerDelegate{
                 willTransituinToPage = pageIndex
             }
         }
+    }
+}
+
+// MARK: AllNodesTableViewControllerDelegate
+extension HomeViewController: AllNodesTableViewControllerDelegate{
+    func allNodesTableViewControllerDidChangeLikeNodes() {
+        currentPage = 0
+        lastPage = 0
+        willTransituinToPage = 0
+        viewControllers.removeAll()
+        setupViewControllers()
+        pageViewController.setViewControllers([viewControllers.first!], direction: .forward, animated: true, completion: nil)
+        collectionView.reloadData()
     }
 }
 

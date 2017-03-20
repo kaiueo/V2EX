@@ -10,6 +10,50 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--所有节点-->
+        <scene sceneID="bvT-Wg-tyU">
+            <objects>
+                <tableViewController id="JQY-z9-cDF" customClass="AllNodesTableViewController" customModule="V2EX" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="dan-e4-gCg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NodeNameCell" textLabel="uQ9-KI-Kxk" style="IBUITableViewCellStyleDefault" id="XPh-Gd-0Os">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XPh-Gd-0Os" id="4Oj-GR-C4k">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="uQ9-KI-Kxk">
+                                            <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="JQY-z9-cDF" id="kFR-nK-rp1"/>
+                            <outlet property="delegate" destination="JQY-z9-cDF" id="qn2-B4-BdB"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="所有节点" id="SOG-BU-Oks">
+                        <barButtonItem key="rightBarButtonItem" title="编辑" id="tWO-lK-YSm">
+                            <connections>
+                                <action selector="editBarButtonDidTouch:" destination="JQY-z9-cDF" id="aFJ-lm-vgy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a4Y-tB-U9k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1324" y="2746"/>
+        </scene>
         <!--Home View Controller-->
         <scene sceneID="YP8-RQ-fM0">
             <objects>
@@ -115,7 +159,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="BOq-2m-0Uu">
-                        <barButtonItem key="rightBarButtonItem" title="节点" id="mP6-rO-0Zb"/>
+                        <barButtonItem key="rightBarButtonItem" title="节点" id="mP6-rO-0Zb">
+                            <connections>
+                                <segue destination="JQY-z9-cDF" kind="show" identifier="AllNodesSeuge" id="2f1-iC-7Qx"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="p4y-TR-uJZ" id="dFM-3D-oi4"/>
@@ -123,7 +171,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="67q-1X-6j7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1772" y="51.724137931034484"/>
+            <point key="canvasLocation" x="-458" y="1871"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="il4-FF-e6N">
@@ -131,7 +179,7 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="3am-Sb-6NH" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ark-jY-6ce" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2015" y="864"/>
+            <point key="canvasLocation" x="-458" y="2684"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="bQH-Hl-L5H">
@@ -184,7 +232,7 @@
                     <navigationItem key="navigationItem" id="uPb-AG-yhh">
                         <nil key="title"/>
                         <view key="titleView" contentMode="scaleToFill" id="bSh-br-uRJ">
-                            <rect key="frame" x="112.5" y="5.5" width="150" height="33"/>
+                            <rect key="frame" x="113" y="6" width="150" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mql-DH-CG6">
@@ -231,7 +279,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JVZ-4v-Oa3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1528.8" y="740.7796101949026"/>
+            <point key="canvasLocation" x="1460" y="1082"/>
         </scene>
         <!--Hot Topic Table View Controller-->
         <scene sceneID="CrM-a6-Epz">
@@ -361,7 +409,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="weX-Rh-bio" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2468" y="1459.52023988006"/>
+            <point key="canvasLocation" x="2449" y="1906"/>
         </scene>
         <!--Topic Detail Table View Controller-->
         <scene sceneID="c03-X5-3fd">
@@ -544,7 +592,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IuT-TJ-UX4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1054" y="2219"/>
+            <point key="canvasLocation" x="1460" y="2746"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="zgt-yO-edc">
@@ -552,7 +600,7 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="bbt-Kx-4Pn" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9mA-QJ-yA0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2518" y="740"/>
+            <point key="canvasLocation" x="2449" y="1031"/>
         </scene>
         <!--个人-->
         <scene sceneID="yeS-9a-wIh">
@@ -739,7 +787,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AFL-Rn-zZ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2120.8000000000002" y="-105.69715142428787"/>
+            <point key="canvasLocation" x="1460" y="45"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="vwg-Rv-0tt">
@@ -883,7 +931,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8kk-pu-wn5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2916" y="-106.59670164917542"/>
+            <point key="canvasLocation" x="2449" y="45"/>
         </scene>
         <!--主页-->
         <scene sceneID="cuf-d2-cX9">
@@ -891,7 +939,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lL7-X9-wG6" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="主页" image="tabicon-home" id="izr-GT-JTy"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="goo-py-lsS">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="goo-py-lsS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -907,7 +955,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mgO-oT-L3U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-551" y="18"/>
+            <point key="canvasLocation" x="-457" y="1082"/>
         </scene>
         <!--探索-->
         <scene sceneID="I0H-s4-zI3">
@@ -931,7 +979,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lCz-Lq-NTE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="589.60000000000002" y="740.7796101949026"/>
+            <point key="canvasLocation" x="599" y="1082"/>
         </scene>
         <!--Latest Topic Table View Controller-->
         <scene sceneID="Qag-Bd-sZe">
@@ -1061,7 +1109,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aNC-1K-NMZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1528.8" y="1459.52023988006"/>
+            <point key="canvasLocation" x="1460" y="1906"/>
         </scene>
         <!--Universal Topic Table View Controller-->
         <scene sceneID="7tx-Nn-tE8">
@@ -1192,7 +1240,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p7i-UG-eN8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-808.79999999999995" y="1397.4512743628186"/>
+            <point key="canvasLocation" x="599" y="1871"/>
         </scene>
     </scenes>
     <resources>
@@ -1212,6 +1260,6 @@
         <image name="topiccell-comment" width="16" height="14"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JwL-Gg-gOa"/>
+        <segue reference="7Ve-If-D0C"/>
     </inferredMetricsTieBreakers>
 </document>

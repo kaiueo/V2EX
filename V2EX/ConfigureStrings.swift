@@ -21,6 +21,8 @@ struct StoryBoardConfigs {
     static let UniversalTopicTableViewControllerIdentifier = "UniversalTopicTableViewController"
     static let UniversalToDetailSegueIdentifier = "UniversalToDetailSegue"
     static let HomeTabBarCellIdentifier = "HomeTabBarCell"
+    static let NodeNameCellIdentifier = "NodeNameCell"
+    static let AllNodesSeugeIdentifier = "AllNodesSeuge"
     
     
 }
