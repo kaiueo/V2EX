@@ -10,11 +10,17 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-
+    
     @IBOutlet weak var collectionView: UICollectionView!
     var pageViewController: UIPageViewController!
     var viewControllers: [UniversalTopicTableViewController] = []
-    var currentPage = 0
+    var currentPage = 0 {
+        didSet{
+            collectionView.reloadData()
+            let indexPath = IndexPath(row: currentPage, section: 0)
+            collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        }
+    }
     var lastPage = 0
     var likeNodes: [[String: Int]] = []
     var willTransituinToPage = 0
@@ -22,7 +28,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.showsHorizontalScrollIndicator = false
@@ -31,7 +37,7 @@ class HomeViewController: UIViewController {
         layout.scrollDirection = .horizontal
         collectionView.collectionViewLayout = layout
         self.navigationItem.title = "主页"
-
+        
         pageViewController = self.childViewControllers.first as! UIPageViewController
         pageViewController.dataSource = self
         pageViewController.delegate = self
@@ -39,8 +45,8 @@ class HomeViewController: UIViewController {
         setupViewControllers()
         
         pageViewController.setViewControllers([viewControllers.first!], direction: .forward, animated: true, completion: nil)
-        //let indexPath = IndexPath(row: currentPage, section: 0)
-        //collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
+        let indexPath = IndexPath(row: currentPage, section: 0)
+        collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
     }
     
     func setupViewControllers(){
@@ -102,12 +108,12 @@ extension HomeViewController: UICollectionViewDataSource{
         if indexPath.row == currentPage {
             cell.backgroundColorView.backgroundColor = UIColor(red:0.98, green:0.98, blue:0.98, alpha:1.00)
             cell.indicatorView.isHidden = false
-            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
+            //collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
         }
         else{
             cell.backgroundColorView.backgroundColor = UIColor(red:0.94, green:0.94, blue:0.95, alpha:1.00)
             cell.indicatorView.isHidden = true
-           
+            
         }
         
         return cell
@@ -120,20 +126,26 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout{
         return CGSize(width: UIConstantConfigs.PageIndicatorViewWidth, height: UIConstantConfigs.PageIndicatorViewHeight)
     }
     
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-        let cell = collectionView.cellForItem(at: indexPath) as! HomeTabBarCollectionViewCell
-        cell.backgroundColorView.backgroundColor = UIColor(red:0.98, green:0.98, blue:0.98, alpha:1.00)
-        cell.indicatorView.isHidden = false
+        let cell = collectionView.cellForItem(at: indexPath) as? HomeTabBarCollectionViewCell
+        if let cell = cell {
+            cell.backgroundColorView.backgroundColor = UIColor(red:0.98, green:0.98, blue:0.98, alpha:1.00)
+            cell.indicatorView.isHidden = false
+        }
+        let fromIndexPath = IndexPath(row: lastPage, section: 0)
+        self.collectionView(collectionView, didDeselectItemAt: fromIndexPath)
+        lastPage = currentPage
         currentPage = indexPath.row
         DispatchQueue.main.async {
             self.pageViewController.setViewControllers([self.viewControllers[indexPath.row]], direction: .forward, animated: false, completion: nil)
         }
+        
         
     }
     
@@ -146,7 +158,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout{
         }
         
     }
-
+    
 }
 
 // MARK: UIPageViewControllerDelegate
@@ -154,13 +166,10 @@ extension HomeViewController: UIPageViewControllerDelegate{
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if completed{
             let toIndexPath = IndexPath(row: willTransituinToPage, section: 0)
-            let fromIndexPath = IndexPath(row: currentPage, section: 0)
             lastPage = currentPage
             currentPage = willTransituinToPage
             collectionView.selectItem(at: toIndexPath, animated: true, scrollPosition: .centeredHorizontally)
-            self.collectionView(collectionView, didDeselectItemAt: fromIndexPath)
-            self.collectionView(collectionView, didSelectItemAt: toIndexPath)
-
+            
         }
     }
     
