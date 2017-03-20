@@ -96,8 +96,8 @@ extension ExplorerViewController: UIPageViewControllerDelegate{
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if completed {
-            if let toView = previousViewControllers.first{
-                if toView.isKind(of: HotTopicTableViewController.self){
+            if let fromView = previousViewControllers.first{
+                if fromView.isKind(of: HotTopicTableViewController.self){
                     movePageIndicator(page: .latest)
                 }
                 else {

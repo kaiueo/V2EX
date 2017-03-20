@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A05DDC31E7A561B001AD36C /* UniversalTopicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A05DDC21E7A561B001AD36C /* UniversalTopicTableViewController.swift */; };
+		0A05DDC51E7A5D67001AD36C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A05DDC41E7A5D67001AD36C /* HomeViewController.swift */; };
 		0A346FC71E72BAB40040724A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A346FC61E72BAB40040724A /* AppDelegate.swift */; };
 		0A346FCC1E72BAB40040724A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A346FCA1E72BAB40040724A /* Main.storyboard */; };
 		0A346FCF1E72BAB40040724A /* V2EX.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0A346FCD1E72BAB40040724A /* V2EX.xcdatamodeld */; };
@@ -55,6 +57,7 @@
 		0A5786BB1E765AD100BC9EE6 /* V2EXNetworks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5786BA1E765AD100BC9EE6 /* V2EXNetworks.swift */; };
 		0A5786BD1E7661E900BC9EE6 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5786BC1E7661E900BC9EE6 /* Models.swift */; };
 		0A5786BF1E7686A400BC9EE6 /* SelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A5786BE1E7686A400BC9EE6 /* SelfViewController.swift */; };
+		0A7D86091E7F93BC00E8FF28 /* HomeTabBarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A7D86081E7F93BC00E8FF28 /* HomeTabBarCollectionViewCell.swift */; };
 		0AB51E5A1E780DBC00B5FB9D /* HotTopicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB51E591E780DBC00B5FB9D /* HotTopicTableViewController.swift */; };
 		0AB51E5C1E780DE300B5FB9D /* TopicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB51E5B1E780DE300B5FB9D /* TopicTableViewCell.swift */; };
 		0AB51E5E1E782DB400B5FB9D /* ExplorerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB51E5D1E782DB400B5FB9D /* ExplorerViewController.swift */; };
@@ -83,6 +86,8 @@
 
 /* Begin PBXFileReference section */
 		0846F0D3BC4109D9D3A5501D /* Pods-V2EX.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-V2EX.release.xcconfig"; path = "Pods/Target Support Files/Pods-V2EX/Pods-V2EX.release.xcconfig"; sourceTree = "<group>"; };
+		0A05DDC21E7A561B001AD36C /* UniversalTopicTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniversalTopicTableViewController.swift; sourceTree = "<group>"; };
+		0A05DDC41E7A5D67001AD36C /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0A346FC31E72BAB40040724A /* V2EX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = V2EX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A346FC61E72BAB40040724A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0A346FCB1E72BAB40040724A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -142,6 +147,7 @@
 		0A5786BA1E765AD100BC9EE6 /* V2EXNetworks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = V2EXNetworks.swift; sourceTree = "<group>"; };
 		0A5786BC1E7661E900BC9EE6 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		0A5786BE1E7686A400BC9EE6 /* SelfViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelfViewController.swift; sourceTree = "<group>"; };
+		0A7D86081E7F93BC00E8FF28 /* HomeTabBarCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabBarCollectionViewCell.swift; sourceTree = "<group>"; };
 		0AB51E591E780DBC00B5FB9D /* HotTopicTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotTopicTableViewController.swift; sourceTree = "<group>"; };
 		0AB51E5B1E780DE300B5FB9D /* TopicTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicTableViewCell.swift; sourceTree = "<group>"; };
 		0AB51E5D1E782DB400B5FB9D /* ExplorerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExplorerViewController.swift; sourceTree = "<group>"; };
@@ -215,8 +221,11 @@
 				0A3470401E72DFEE0040724A /* LoginViewController.swift */,
 				0A5786BE1E7686A400BC9EE6 /* SelfViewController.swift */,
 				0AB51E5D1E782DB400B5FB9D /* ExplorerViewController.swift */,
+				0A05DDC41E7A5D67001AD36C /* HomeViewController.swift */,
+				0A7D86081E7F93BC00E8FF28 /* HomeTabBarCollectionViewCell.swift */,
 				0AB51E591E780DBC00B5FB9D /* HotTopicTableViewController.swift */,
 				0AB51E611E7832B400B5FB9D /* LatestTopicTableViewController.swift */,
+				0A05DDC21E7A561B001AD36C /* UniversalTopicTableViewController.swift */,
 				0A5458751E7956340006A06F /* TopicDetailTableViewController.swift */,
 				0AB51E5B1E780DE300B5FB9D /* TopicTableViewCell.swift */,
 				0A5458771E7956500006A06F /* TopicDetailTableViewCell.swift */,
@@ -626,7 +635,9 @@
 				0A5458781E7956500006A06F /* TopicDetailTableViewCell.swift in Sources */,
 				0AB51E621E7832B400B5FB9D /* LatestTopicTableViewController.swift in Sources */,
 				0A3470281E72C4B50040724A /* Spring.swift in Sources */,
+				0A05DDC31E7A561B001AD36C /* UniversalTopicTableViewController.swift in Sources */,
 				0A51898A1E76E771003638C7 /* ConfigureStrings.swift in Sources */,
+				0A05DDC51E7A5D67001AD36C /* HomeViewController.swift in Sources */,
 				0A54587A1E7956610006A06F /* TopicCommentTableViewCell.swift in Sources */,
 				0A346FCF1E72BAB40040724A /* V2EX.xcdatamodeld in Sources */,
 				0A3470271E72C4B50040724A /* SoundPlayer.swift in Sources */,
@@ -652,6 +663,7 @@
 				0A34703E1E72DDE60040724A /* TPKeyboardAvoidingTableView.m in Sources */,
 				0A34701B1E72C4B50040724A /* DesignableImageView.swift in Sources */,
 				0A5458761E7956340006A06F /* TopicDetailTableViewController.swift in Sources */,
+				0A7D86091E7F93BC00E8FF28 /* HomeTabBarCollectionViewCell.swift in Sources */,
 				0A346FC71E72BAB40040724A /* AppDelegate.swift in Sources */,
 				0AB51E5A1E780DBC00B5FB9D /* HotTopicTableViewController.swift in Sources */,
 			);

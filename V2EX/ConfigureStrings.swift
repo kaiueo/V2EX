@@ -18,10 +18,20 @@ struct StoryBoardConfigs {
     static let LatestToDetailSegueIdentifier = "LatestToDetailSegue"
     static let HotToDetailSegueIdentifier = "HotToDetailSegue"
     static let TopicDetailTableViewControllerIdentifier = "TopicDetailTableViewController"
+    static let UniversalTopicTableViewControllerIdentifier = "UniversalTopicTableViewController"
+    static let UniversalToDetailSegueIdentifier = "UniversalToDetailSegue"
+    static let HomeTabBarCellIdentifier = "HomeTabBarCell"
     
     
 }
 
+struct UIConstantConfigs {
+    static let PageIndicatorViewWidth = 120
+    static let PageIndicatorViewHeight = 25
+
+}
+
 struct UserDefaultsStrings {
     static let SelfInfoString = "self-info"
+    static let UserLikesNodes = "user-likes-nodes"
 }
