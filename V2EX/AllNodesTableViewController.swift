@@ -120,11 +120,10 @@ class AllNodesTableViewController: UITableViewController {
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            likeNodes.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            let node = likeNodes.remove(at: indexPath.row)
+            allNodes.insert(node, at: 0)
         } else if editingStyle == .insert {
             let node = allNodes.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
             likeNodes.append(node)
         }
         tableView.reloadData()
@@ -159,15 +158,5 @@ class AllNodesTableViewController: UITableViewController {
         
     }
     
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }
