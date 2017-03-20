@@ -13,7 +13,7 @@ class UniversalTopicTableViewController: UITableViewController {
 
     var topics: JSON! = []
     var nodeId: Int!
-    var pageIndex: Int!
+    var pageIndex: Int! = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +22,6 @@ class UniversalTopicTableViewController: UITableViewController {
         view.showLoading()
         
         refreshControl?.addTarget(self, action: #selector(LatestTopicTableViewController.refreshData), for: .valueChanged)
-        navigationItem.title = "最新"
         loadData()
     }
     

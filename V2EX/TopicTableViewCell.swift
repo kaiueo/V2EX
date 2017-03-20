@@ -10,7 +10,9 @@ import UIKit
 import SwiftyJSON
 import SwiftDate
 
-
+protocol TopicTableViewCellDelegate: class {
+    func topicTableViewCellNodeButtonDidTouch(_ sender: [String: Int])
+}
 class TopicTableViewCell: UITableViewCell {
     
     var topic: JSON! {
@@ -18,6 +20,8 @@ class TopicTableViewCell: UITableViewCell {
             initCell()
         }
     }
+    
+    weak var delegate: TopicTableViewCellDelegate?
 
     @IBOutlet weak var avatarImageView: UIImageView!
     @IBOutlet weak var authorLabel: UILabel!
@@ -27,6 +31,15 @@ class TopicTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var nodeButton: UIButton?
     
+    var node: [String: Int] = [:]
+    
+    @IBAction func nodeButtonDidTouch(_ sender: UIButton) {
+        
+        delegate?.topicTableViewCellNodeButtonDidTouch(node)
+        
+        
+        
+    }
     func initCell(){
         titleLabel.text = topic["title"].string
         let detail = topic["content"].string!
@@ -40,15 +53,7 @@ class TopicTableViewCell: UITableViewCell {
         }
         authorLabel.text = topic["member"]["username"].string
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        node = [topic["node"]["title"].string!: topic["node"]["id"].int!]
         
     }
     

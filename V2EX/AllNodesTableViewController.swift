@@ -15,7 +15,7 @@ protocol AllNodesTableViewControllerDelegate:class {
 class AllNodesTableViewController: UITableViewController {
     
 
-    var delegate: AllNodesTableViewControllerDelegate?
+    weak var delegate: AllNodesTableViewControllerDelegate?
     var allNodes: [[String: Int]] = []
     var likeNodesId = Set<Int>()
     
@@ -156,6 +156,22 @@ class AllNodesTableViewController: UITableViewController {
         }
         return false
         
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        var node: [String: Int]
+        if indexPath.section == 0{
+            node = likeNodes[indexPath.row]
+        }
+        else {
+            node = allNodes[indexPath.row]
+        }
+        
+        let toViewController = storyboard?.instantiateViewController(withIdentifier: StoryBoardConfigs.UniversalTopicTableViewControllerIdentifier) as! UniversalTopicTableViewController
+        toViewController.nodeId = node.first?.value
+        toViewController.navigationItem.title = node.first?.key
+        navigationController?.pushViewController(toViewController, animated: true)
     }
     
     

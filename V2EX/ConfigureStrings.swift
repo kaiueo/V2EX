@@ -28,7 +28,7 @@ struct StoryBoardConfigs {
 }
 
 struct UIConstantConfigs {
-    static let PageIndicatorViewWidth = 120
+    static let PageIndicatorViewWidth = 100
     static let PageIndicatorViewHeight = 25
 
 }

@@ -54,6 +54,7 @@ class LatestTopicTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: StoryBoardConfigs.TopicCellIdentifier, for: indexPath) as! TopicTableViewCell
         cell.topic = latestTopics[indexPath.row]
+        cell.delegate = self
         return cell
     }
     
@@ -73,6 +74,15 @@ class LatestTopicTableViewController: UITableViewController {
             let indexPath = sender as! IndexPath
             toViewController.topic = latestTopics[indexPath.row]
         }
+    }
+}
+
+extension LatestTopicTableViewController: TopicTableViewCellDelegate{
+    func topicTableViewCellNodeButtonDidTouch(_ sender: [String : Int]) {
+        let toViewController = storyboard?.instantiateViewController(withIdentifier: StoryBoardConfigs.UniversalTopicTableViewControllerIdentifier) as! UniversalTopicTableViewController
+        toViewController.nodeId = sender.first?.value
+        toViewController.navigationItem.title = sender.first?.key
+        navigationController?.pushViewController(toViewController, animated: true)
     }
 }
 

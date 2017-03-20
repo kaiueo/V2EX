@@ -52,6 +52,7 @@ class HotTopicTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: StoryBoardConfigs.TopicCellIdentifier, for: indexPath) as! TopicTableViewCell
         cell.topic = hotTopics[indexPath.row]
+        cell.delegate = self
         return cell
     }
     
@@ -75,4 +76,14 @@ class HotTopicTableViewController: UITableViewController {
         }
     }
 
+}
+
+extension HotTopicTableViewController: TopicTableViewCellDelegate{
+    func topicTableViewCellNodeButtonDidTouch(_ sender: [String : Int]) {
+        let toViewController = storyboard?.instantiateViewController(withIdentifier: StoryBoardConfigs.UniversalTopicTableViewControllerIdentifier) as! UniversalTopicTableViewController
+        toViewController.nodeId = sender.first?.value
+        toViewController.navigationItem.title = sender.first?.key
+        navigationController?.pushViewController(toViewController, animated: true)
+        
+    }
 }
