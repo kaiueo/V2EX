@@ -14,10 +14,16 @@ protocol AllNodesTableViewControllerDelegate:class {
 
 class AllNodesTableViewController: UITableViewController {
     
-
+    
+    @IBOutlet weak var searchBar: UISearchBar!
     weak var delegate: AllNodesTableViewControllerDelegate?
-    var allNodes: [[String: Int]] = []
+    var allNodes: [[String: Int]] = [] {
+        didSet{
+            searchNodes = allNodes
+        }
+    }
     var likeNodesId = Set<Int>()
+    var searchNodes: [[String: Int]] = []
     
     var likeNodes: [[String: Int]] = []{
         didSet{
@@ -32,6 +38,8 @@ class AllNodesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchBar.delegate = self
         
         likeNodes = UserDefaults.standard.object(forKey: UserDefaultsStrings.UserLikesNodes) as! [[String: Int]]
         getAllNodes()
@@ -52,6 +60,7 @@ class AllNodesTableViewController: UITableViewController {
             }
             
             self.allNodes = nodes
+            self.searchNodes = self.allNodes
             self.tableView.reloadData()
         }
     }
@@ -79,7 +88,7 @@ class AllNodesTableViewController: UITableViewController {
             return likeNodes.count
         }
         else{
-            return allNodes.count
+            return searchNodes.count
         }
         
     }
@@ -90,7 +99,7 @@ class AllNodesTableViewController: UITableViewController {
         if indexPath.section == 0{
             cell.textLabel?.text = likeNodes[indexPath.row].first?.key
         }else {
-            cell.textLabel?.text = allNodes[indexPath.row].first?.key
+            cell.textLabel?.text = searchNodes[indexPath.row].first?.key
         }
         
         return cell
@@ -114,7 +123,7 @@ class AllNodesTableViewController: UITableViewController {
         }
         return headerLabel
     }
-
+    
     
     
     // Override to support editing the table view.
@@ -165,7 +174,7 @@ class AllNodesTableViewController: UITableViewController {
             node = likeNodes[indexPath.row]
         }
         else {
-            node = allNodes[indexPath.row]
+            node = searchNodes[indexPath.row]
         }
         
         let toViewController = storyboard?.instantiateViewController(withIdentifier: StoryBoardConfigs.UniversalTopicTableViewControllerIdentifier) as! UniversalTopicTableViewController
@@ -173,6 +182,26 @@ class AllNodesTableViewController: UITableViewController {
         toViewController.navigationItem.title = node.first?.key
         navigationController?.pushViewController(toViewController, animated: true)
     }
+}
+
+// MARK: UISearchBarDelegate
+
+extension AllNodesTableViewController: UISearchBarDelegate{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText == "" {
+            searchNodes = allNodes
+        } else {
+            searchNodes = []
+            for node in allNodes{
+                if (node.first?.key.uppercased().contains(searchText.uppercased()))! {
+                    searchNodes.append(node)
+                }
+            }
+        }
+        tableView.reloadData()
+    }
     
-    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
 }
